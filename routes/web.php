@@ -3,11 +3,12 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JbukuController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PbookController;
 use App\Http\Controllers\RbukuController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
-use App\Models\Pbook;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,9 @@ Route::resource('jbukus', JbukuController::class);
 Route::resource('rbukus', RbukuController::class);
 Route::resource('books', BookController::class);
 Route::resource('pinjams', PbookController::class);
+Route::get('/login',[LoginController::class,'index']);
+Route::post('/login',[LoginController::class,'authenticate']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::post('/register',[RegisterController::class,'store']);
+
 
