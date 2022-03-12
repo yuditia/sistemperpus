@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePbooksTable extends Migration
+class CreateBreturnsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePbooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('pbooks', function (Blueprint $table) {
+        Schema::create('breturns', function (Blueprint $table) {
             $table->id();
-            $table->date('tpinjam');
             $table->date('tkembali');
+            $table->integer('denda')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('staff_id');
             $table->foreignId('book_id');
@@ -31,6 +31,6 @@ class CreatePbooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pbooks');
+        Schema::dropIfExists('breturns');
     }
 }

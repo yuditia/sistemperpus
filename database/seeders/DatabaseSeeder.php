@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             RbukuSeeder::class,
             BookSeeder::class,
             DpinjamSeeder::class,
-            PbookSeeder::class
+            PbookSeeder::class,
+            BreturnSeeder::class
         ]);
     }
 }

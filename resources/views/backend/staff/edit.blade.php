@@ -9,7 +9,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <main class="form-register mb-3">
-                    <form action="/staffs/{{ $staff->id }}" method="post">
+                    <form action="/perpus/staffs/{{ $staff->id }}" method="post">
                         @csrf
                         @method('PUT')
                       <div class="form-floating">

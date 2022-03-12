@@ -56,7 +56,7 @@ class UserController extends Controller
         
         User::create($validated);
 
-        return redirect('/users')->with('success','Registration Success!!');
+        return redirect('/perpus/users')->with('success','Registration Success!!');
     }
 
     /**
@@ -110,7 +110,7 @@ class UserController extends Controller
         
         $user->update($validated);
 
-        return redirect('/users')->with('success','Update Success!!');
+        return redirect('/perpus/users')->with('success','Update Success!!');
     }
 
     /**
@@ -123,6 +123,6 @@ class UserController extends Controller
     {
         User::destroy($user->id);
 
-        return redirect('/users')->with('success','Data has been deleted!!');
+        return redirect('/perpus/users')->with('success','Data has been deleted!!');
     }
 }

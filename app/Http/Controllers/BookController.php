@@ -64,7 +64,7 @@ class BookController extends Controller
         }
         Book::create($validated);
 
-        return redirect('/books')->with('success','Registration Book Success!!');
+        return redirect('/perpus/books')->with('success','Registration Book Success!!');
     }
 
     /**
@@ -123,7 +123,7 @@ class BookController extends Controller
         } 
         $book->update($validated);
 
-        return redirect('/books')->with('success','Update Book Success!!');
+        return redirect('/perpus/books')->with('success','Update Book Success!!');
     }
 
     /**
@@ -136,6 +136,6 @@ class BookController extends Controller
     {
         Book::destroy($book->id);
 
-        return redirect('/books')->with('success','Book has been deleted!!');
+        return redirect('/perpus/books')->with('success','Book has been deleted!!');
     }
 }

@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasFactory;
     protected $table = 'users';
     protected $guarded = ['id'];
+    protected $hidden = ['password'];
 
     public function jenis_anggota()
     {
@@ -21,6 +23,13 @@ class User extends Model
     {
         return $this->hasMany(Pbook::class);
     }
+
+    public function breturn()
+    {
+        return $this->hasMany(Breturn::class);
+    }
+
+    
 
     public function scopeFilter($query, array $filters)
     {

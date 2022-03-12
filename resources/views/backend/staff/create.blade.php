@@ -9,7 +9,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <main class="form-register mb-3">
-                    <form action="/staffs" method="post">
+                    <form action="/perpus/staffs" method="post">
                         @csrf
                       <div class="form-floating">
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required value="{{ old('username') }}">

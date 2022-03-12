@@ -9,7 +9,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <main class="form-register mb-3">
-                    <form action="/users" method="post">
+                    <form action="/perpus/users" method="post">
                         @csrf
                       <div class="form-floating">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required autofocus value="{{ old('name') }}">

@@ -51,7 +51,7 @@ class StaffController extends Controller
         $validated['password'] = Hash::make($validated['password']);
         Staff::create($validated);
 
-        return redirect('/staffs')->with('success','Registration Success!!');
+        return redirect('/perpus/staffs')->with('success','Registration Success!!');
     }
 
     /**
@@ -100,7 +100,7 @@ class StaffController extends Controller
                 
             $staff->update($validated);
 
-            return redirect('/staffs')->with('success','Update Success!!');
+            return redirect('/perpus/staffs')->with('success','Update Success!!');
     }
 
     /**
@@ -113,6 +113,6 @@ class StaffController extends Controller
     {
         Staff::destroy($staff->id);
 
-        return redirect('/staffs')->with('success','Data has been deleted!!');
+        return redirect('/perpus/staffs')->with('success','Data has been deleted!!');
     }
 }

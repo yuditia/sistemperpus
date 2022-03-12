@@ -38,9 +38,9 @@
   <body class="text-center">
     <div class="container">
       <div class="col-md-5">
-        @if (session()->has('LoginError'))
+        @if (session()->has('loginError'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('LoginError') }}
+            {{ session('loginError') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -50,7 +50,7 @@
           <main class="form-signin">
             <img class="mb-4" src="../assets/brand/sihir.svg" alt="" width="100" height="90">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-            <form action="/login" method="post">
+            <form action="{!! route('do-login') !!}" method="post">
               @csrf
               <div class="form-floating">
                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" autofocus required>
@@ -75,7 +75,7 @@
               <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
               <div class="checkbox mb-3 mt-2">
                 <label>
-                  <p>belum punya akun? <a href="/register">daftar</a></p>
+                  <p>belum punya akun? <a href="/auth/register">daftar</a></p>
                 </label>
               </div>
               <p class="mt-5 mb-3 text-muted">&copy; shidragon</p>
@@ -86,7 +86,7 @@
     </div>
     </div>
 
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
   </body>
 </html>

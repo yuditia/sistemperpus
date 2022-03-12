@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <form action="/staffs" method="get">
+        <form action="/perpus/staffs" method="get">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="search" name="search" value="{{ request('search') }}">
             <button class="btn btn-dark" type="submit" >Search</button>
@@ -22,14 +22,13 @@
         </form>
       </div>
     </div>
-    <a href="/staffs/create"><button class="btn btn-dark mb-3"><span data-feather="user-plus"></span> Tambah</button></a>
+    <a href="/perpus/staffs/create"><button class="btn btn-dark mb-3"><span data-feather="user-plus"></span> Tambah</button></a>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr class="text-center">
               <th scope="col">#</th>
               <th scope="col">Username</th>
-              <th scope="col">Password</th>
               <th scope="col">Name</th>
               <th scope="col">Mobile</th>
               <th scope="col">Address</th>
@@ -41,16 +40,21 @@
               <tr class="text-center">
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $staff->username }}</td>
-                <td>{{ $staff->password }}</td>
                 <td>{{ $staff->name }}</td>
                 <td>{{ $staff->mobile }}</td>
                 <td>{{ $staff->address }}</td>
                 <td>
-                    <a href="staffs/{{ $staff->id }}/edit" class="btn btn-warning" ><span data-feather="edit"></span></a>
-                    <form action="staffs/{{ $staff->id }}" method="post" class="d-inline">
+                    <a href="/perpus/staffs/{{ $staff->id }}/edit" class="btn btn-warning btn-sm" ><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
+                      <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg></a>
+                    <form action="/perpus/staffs/{{ $staff->id }}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger" onclick="return confirm('are you sure?')"><span data-feather="trash"></span></button>
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('are you sure?')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="3 6 5 6 21 6"></polyline>
+                          <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+                        </svg></button>
                     </form>
                 </td>
               </tr>

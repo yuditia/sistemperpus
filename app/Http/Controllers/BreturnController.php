@@ -3,31 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Pbook;
+use App\Models\Breturn;
 use App\Models\Staff;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PbookController extends Controller
+class BreturnController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        
-        return view('backend.pinjam.index',[
-            'pinjams' => Pbook::with(['user', 'staff'])->latest()->filter(request(['search']))->paginate(10),
-            
-            
+        return view('backend.pengembalian.index',[
+            'breturns'=>Breturn::with(['user','book','staff'])->latest()->filter(request(['search']))->paginate(10),
         ]);
-
-        
-
-        
     }
 
     /**
@@ -37,7 +29,7 @@ class PbookController extends Controller
      */
     public function create()
     {
-        return view('backend.pinjam.create',[
+        return view('backend.pengembalian.create',[
             'books'=>Book::all(),
             'users'=>User::all(),
             'staffs'=>Staff::all()
@@ -53,27 +45,26 @@ class PbookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'tpinjam' => 'required',
             'tkembali' => 'required',
+            'denda'=>'required',
             'user_id' => 'required ',
             'staff_id' => 'required',
             'book_id' => 'required',
             
         ]);
             
-            Pbook::create($validated);
+            Breturn::create($validated);
     
-            return redirect('/perpus/pinjams')->with('success','Registration Success!!');
-        
+            return redirect('/perpus/returns')->with('success','Registration Success!!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pbook  $pbook
+     * @param  \App\Models\Breturn  $breturn
      * @return \Illuminate\Http\Response
      */
-    public function show(Pbook $pbook)
+    public function show(Breturn $breturn)
     {
         //
     }
@@ -81,18 +72,16 @@ class PbookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pbook  $pbook
+     * @param  \App\Models\Breturn  $breturn
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pbook $pinjam)
+    public function edit(Breturn $return)
     {
-        
-        return view('backend.pinjam.edit',[
-            'pbook'=>$pinjam,
+        return view('backend.pengembalian.edit',[
+            'returns'=>$return,
             'books'=>Book::all(),
             'users'=>User::all(),
             'staffs'=>Staff::all()
-
         ]);
     }
 
@@ -100,36 +89,36 @@ class PbookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pbook  $pbook
+     * @param  \App\Models\Breturn  $breturn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pbook $pinjam)
+    public function update(Request $request, Breturn $return)
     {
         
         $validated = $request->validate([
-            'tpinjam' => 'required',
             'tkembali' => 'required',
+            'denda'=>'required',
             'user_id' => 'required ',
             'staff_id' => 'required',
             'book_id' => 'required',
             
         ]);
             
-            $pinjam->update($validated);
+            $return->update($validated);
     
-            return redirect('/perpus/pinjams')->with('success','update Success!!');
+            return redirect('/perpus/returns')->with('success','Update Success!!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pbook  $pbook
+     * @param  \App\Models\Breturn  $breturn
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pbook $pinjam)
+    public function destroy(Breturn $return)
     {
-        Pbook::destroy($pinjam->id);
+        Breturn::destroy($return->id);
 
-        return redirect('/perpus/pinjams')->with('success','Data has been deleted!!');
+        return redirect('/perpus/returns')->with('success','Data has been deleted!!');
     }
 }

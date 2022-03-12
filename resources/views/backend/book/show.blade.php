@@ -44,7 +44,7 @@
                     <li class="list-group-item col">: {{ $book->rbuku->lokasi }}</li>
                 </ul> 
                 <div class="d-grid gap-2 mt-3">
-                    <a href="/books" type="button" class="btn btn-dark">Back</a>
+                    <a href="/perpus/books" type="button" class="btn btn-dark">Back</a>
                   </div>
             </div>
         </div>

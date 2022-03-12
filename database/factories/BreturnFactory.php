@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PbookFactory extends Factory
+class BreturnFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,8 @@ class PbookFactory extends Factory
     public function definition()
     {
         return [
-            'tpinjam'=>$this->faker->dateTimeInInterval('+1 days', '+5 days'),
             'tkembali'=>$this->faker->dateTimeInInterval('+5 days', '+15 days'),
+            'denda'=>$this->faker->randomDigit(),
             'user_id'=>mt_rand(1,30),
             'staff_id'=>mt_rand(1,30),
             'book_id'=>mt_rand(1,30)

@@ -23,6 +23,16 @@ class Book extends Model
         return $this->belongsTo(Rbuku::class);
     }
 
+    public function pbook()
+    {
+        return $this->hasMany(Pbook::class);
+    }
+
+    public function breturn()
+    {
+        return $this->hasMany(Breturn::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, function($query, $search){

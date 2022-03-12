@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <main class="form-register mb-3">
-                    <form action="/books" method="post" enctype="multipart/form-data">
+                    <form action="/perpus/books" method="post" enctype="multipart/form-data">
                         @csrf
                      <div class="form-floating">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required autofocus value="{{ old('name') }}">

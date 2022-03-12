@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <main class="form-register mb-3">
-                    <form action="/books/{{ $book->id }}" method="post" enctype="multipart/form-data">
+                    <form action="/perpus/books/{{ $book->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                      <div class="form-floating">

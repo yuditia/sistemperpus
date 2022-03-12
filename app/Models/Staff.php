@@ -10,6 +10,16 @@ class Staff extends Model
     use HasFactory;
     protected $table = 'staff';
     protected $guarded = ['id'];
+    
+    public function pbook()
+    {
+        return $this->hasMany(Pbook::class); 
+    }
+
+    public function breturn()
+    {
+        return $this->hasMany(Breturn::class);
+    }
 
 
     public function scopeFilter($query, array $filters)
@@ -22,8 +32,5 @@ class Staff extends Model
         });
     }
 
-    public function pbook()
-    {
-        return $this->hasMany(Pbook::class);
-    }
+    
 }
